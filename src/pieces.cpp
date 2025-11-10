@@ -5,7 +5,7 @@
 #include "pieces.hpp"
 
 // toggle whether or not to arbitrarily randomize orientations to avoid bias caused by importing from the solution
-#define SHUFFLE_ORIENTATIONS true
+#define SHUFFLE_ORIENTATIONS false
 // toggle whether or not to use wood grain optimization
 #define USE_WOOD_GRAIN true
 

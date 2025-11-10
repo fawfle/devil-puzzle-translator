@@ -2,7 +2,7 @@ import random
 import colorsys
 from PIL import Image
 
-im = Image.open("./octagonal-puzzle-200pc-process-image.png").copy();
+im = Image.open("./octagonal-puzzle-400pc-process-image.png").copy();
 
 class PixelData:
     def __init__(self, x, y, color) -> None:
@@ -46,14 +46,14 @@ def check_piece(pixel: PixelData, res: list[tuple[int, int]]):
 print("w:" + str(im.size[0]))
 print("h:" + str(im.size[1]))
 
-IMAGE_OFFSET_X = 3;
-IMAGE_OFFSET_Y = 2;
+IMAGE_OFFSET_X = 6;
+IMAGE_OFFSET_Y = 6;
 
 IMAGE_STEP = 24;
 
 # size of effective grid
-matrix_width = im.size[0] // IMAGE_STEP + 1;
-matrix_height = im.size[0] // IMAGE_STEP + 2;
+matrix_width = im.size[0] // IMAGE_STEP;
+matrix_height = im.size[0] // IMAGE_STEP;
 
 # matrix of pixels skipping by gridsize. [y][x]
 pixel_matrix = [[] for _ in range(matrix_height)];
@@ -118,7 +118,7 @@ for pixel in check_pixels:
 
 print("piece count: " + str(len(pieces)));
 
-outfile = open("200pc.txt", "w")
+outfile = open("400pc.txt", "w")
 
 def is_big_square(x:int, y:int) -> bool:
     return (x + y % 2) % 2 != 0;

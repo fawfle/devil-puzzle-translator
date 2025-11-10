@@ -2,7 +2,7 @@ import random
 import colorsys
 from PIL import Image
 
-im = Image.open("./Mind_Bending_Puzzle_-_100pc Process Image.png").copy();
+im = Image.open("./octagonal-puzzle-100pc-process-image.png").copy();
 
 class PixelData:
     def __init__(self, x, y, color) -> None:

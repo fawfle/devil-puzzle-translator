@@ -13,7 +13,7 @@
 using namespace std;
 
 // shuffle pieces to avoid bias caused by importing from the solution
-#define SHUFFLE_PIECES true
+#define SHUFFLE_PIECES false
 
 bool checkSubPiece(PieceOrientation &superPiece, PieceOrientation &subPiece, int row, int col) {
 	for (int i = 0; i < subPiece.effectiveHeight(); i++) {
@@ -125,6 +125,9 @@ int main() {
 
 	chrono::steady_clock::time_point startTime = chrono::steady_clock::now();
 
+	cout << "Finding Solutions\n";
+	int count = 1;
+
 	vector<vector<vector<Piece>>> solutionsList;
 	for (auto curr = superPieces->head->right; curr != superPieces->head; curr = curr->right) {
 		vector<vector<Piece>> solutions;
@@ -132,7 +135,11 @@ int main() {
 		// we only care about 1 orientation
 		findSubPieces(curr->data.orientations[0], subPieces, solutions, _solution);
 		solutionsList.push_back(solutions);
+		cout << "for piece: " << count << " found: " << solutions.size() << "\n";
+		count++;
 	}
+
+	cout << "Finished search\n";
 
 	int sanityCount = 0;
 
@@ -146,12 +153,12 @@ int main() {
 	int pieceSum = 0;
 
 	for (auto solutions : solutionsList) {
-		cout << solutions.size();
+		// cout << solutions.size();
 		if (solutions.size() > 0) {
-			cout << " " << solutions.at(0).size();
+			// cout << " " << solutions.at(0).size();
 			pieceSum += solutions.at(0).size();
 		}
-		cout << "\n";
+		// cout << "\n";
 	}
 
 	cout << "Piece sum: " << pieceSum << endl;
