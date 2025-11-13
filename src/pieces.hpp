@@ -28,6 +28,8 @@ struct PieceOrientation {
 		int effectiveHeight() const { return 1 + endI - startI; };
 		int effectiveWidth() const { return 1 + endJ - startJ; };
 
+		int area() const;
+
 		// return piece cells relative to bounding box
 		int getCellRelative(int i, int j) const { return arr[i + startI][j + startJ]; };
 		void setCellRelative(int i, int j, int value) { arr[i + startI][j + startJ] = value; };
@@ -44,4 +46,9 @@ struct Piece {
 		Piece();
 		Piece(std::string data, int rows, int cols);
 		std::vector<PieceOrientation> orientations;
+
+		// position and orientation data for subpiece
+		int orientationIndex = 0;
+		int rowOffset = 0;
+		int colOffset = 0;
 };

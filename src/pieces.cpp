@@ -188,6 +188,16 @@ void PieceOrientation::printPiece() const {
 	}
 }
 
+int PieceOrientation::area() const {
+	int area = 0;
+	for (int i = 0; i < effectiveHeight(); i++) {
+		for (int j = 0; j < effectiveWidth(); j++) {
+			if (getCellRelative(i, j) != 0) area++;
+		}
+	}
+	return area;
+}
+
 void PieceOrientation::printBoundingBox() const {
 	std::cout << "sI: " << startI << " eI: " << endI << " sJ: " << startJ << " eJ: " << endJ << std::endl;
 }
