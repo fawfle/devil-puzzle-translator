@@ -1,6 +1,6 @@
 # Devil Puzzle Translator
 
-A solver for the [Torched Products "Mind Bending Octagonal Fractal Puzzle".](https://torchedproducts.com/products/mind-bending-fractal-puzzle?_pos=1&_sid=a1b3a04fb&_ss=r)
+The second part to a solver for the [Torched Products "Mind Bending Octagonal Fractal Puzzle".](https://torchedproducts.com/products/mind-bending-fractal-puzzle?_pos=1&_sid=a1b3a04fb&_ss=r). The first part to the solver is [here](https://github.com/fawfle/devil-puzzle-solver).
 
 The program translates from an easier to solve solution to a more difficult one. The designers of the puzzle created the larger versions by subdividing pieces in the puzzles with fewer pieces (50 to 100, 100 to 200, 200 to 400) meaning the computation can be changed to the significantly easier task of mapping one set of pieces to another. This solution uses the 100pc solution so generate the 200pc solution.
 
