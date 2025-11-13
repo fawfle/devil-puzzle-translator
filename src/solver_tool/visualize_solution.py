@@ -1,11 +1,14 @@
 import sys
 import colorsys
 import random
+import os
 from PIL import Image
 
 SCALING_FACTOR = 10;
 
-solutionFile = open("./200pc_solution.txt", "r")
+absolute_path = os.path.dirname(os.path.abspath(__file__))
+solutionFile = open(absolute_path + "/../100pc_solution.txt", "r")
+# solutionFile = open(absolute_path + "/../../200pc_solution.txt", "r")
 
 fileContent = solutionFile.read().replace('\n', '');
 
